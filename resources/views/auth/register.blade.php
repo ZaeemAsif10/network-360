@@ -7,6 +7,7 @@
                 <div class="row justify-content-md-center h-100">
                     <div class="card-wrapper">
                         <div class="brand">
+                            <img src="{{ asset('public/assets/images/Net 360.png') }}" alt="logo">
                         </div>
                         <div class="card fat">
                             <div class="card-body">

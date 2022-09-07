@@ -91,16 +91,6 @@
 
 
 
-
-
-
-
-    <div class="action_footer">
-        <a href="#" class="cd-top"><i class="fas fa-arrow-up"></i></a>
-        <a href="tel:18006268" style="color: white;font-size: 17px;"><i class="fas fa-phone"></i> <span>
-                &nbsp;18006268</span></a>
-    </div>
-
     <script src="{{ asset('public/assets/libraries/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('public/assets/vendor/core/core/base/libraries/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/app.js') }}"></script>
@@ -128,6 +118,8 @@
 
         window.addEventListener("scroll", reveal);
     </script>
+
+    @yield('scripts')
 
 </body>
 

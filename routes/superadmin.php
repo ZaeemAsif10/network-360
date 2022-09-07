@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +17,5 @@ use App\Http\Controllers\Admin\AdminController;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
-Route::middleware(['auth'])->group(function () {
 
-    Route::get('/', function () {
-        return view('auth.login');
-    });
-
-    Route::get('admin/dashboard', [AdminController::class, 'index']);
-
-});

@@ -10004,9 +10004,10 @@ h3 {
 }
 
 .my-login-page .brand {
-	width: 90px;
-	height: 90px;
+	width: 45%;
+	height: 70px;
 	overflow: hidden;
+  margin-left: 100px;
 }
 
 .my-login-page .brand img {
