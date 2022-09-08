@@ -117,6 +117,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="{{ url('superadmin/sub-category') }}">Sub Category List</a></li>
+                        <li><a href="{{ url('superadmin/create-feature') }}">Feature List</a></li>
                     </ul>
                 </li>
             </ul>

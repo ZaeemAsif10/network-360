@@ -5,6 +5,7 @@ namespace App\Http\Controllers\SuperAdmin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\SubCategoryFeature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -70,5 +71,42 @@ class CategoryController extends Controller
     public function deleteSubCategory(Request $request)
     {
         return SubCategory::deleteSubCategory($request->id);
+    }
+
+
+
+
+
+
+    //Sub Category Functons
+    public function createFeature()
+    {
+        $data['sub_categories'] = SubCategory::all();
+        return view('superadmin-side.subcategory.feature', compact('data'));
+    }
+
+    public function storeFeature(Request $request)
+    {
+        return SubCategoryFeature::storeFeature($request);
+    }
+
+    public function getFeature()
+    {
+        return SubCategoryFeature::getFeature();
+    }
+
+    public function editFeature(Request $request)
+    {
+        return SubCategoryFeature::editFeature($request->id);
+    }
+
+    public function updateFeature(Request $request)
+    {
+        return SubCategoryFeature::updateFeature($request);
+    }
+
+    public function deleteFeature(Request $request)
+    {
+        return SubCategoryFeature::deleteFeature($request->id);
     }
 }

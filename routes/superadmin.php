@@ -37,4 +37,10 @@ Route::get('edit-sub-category', [CategoryController::class, 'editSubCategory']);
 Route::post('update-sub-category', [CategoryController::class, 'updateSubCategory']);
 Route::get('delete-sub-category', [CategoryController::class, 'deleteSubCategory']);
 
-
+// Super Admin Sub Categoy Feature
+Route::get('superadmin/create-feature', [CategoryController::class, 'createFeature']);
+Route::post('store-feature', [CategoryController::class, 'storeFeature']);
+Route::get('get-feature', [CategoryController::class, 'getFeature']);
+Route::get('edit-feature', [CategoryController::class, 'editFeature']);
+Route::post('update-feature', [CategoryController::class, 'updateFeature']);
+Route::get('delete-feature', [CategoryController::class, 'deleteFeature']);
