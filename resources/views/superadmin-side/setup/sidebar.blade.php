@@ -120,6 +120,14 @@
                         <li><a href="{{ url('superadmin/create-feature') }}">Feature List</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-house"></span><span class="mtext">Property</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ url('superadmin/create-property') }}">Create Property</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

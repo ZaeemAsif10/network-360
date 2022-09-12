@@ -43,7 +43,7 @@
                             Feature</button>
                     </div>
                 </div>
-                <table class="data-table table hover multiple-select-row nowrap">
+                <table class="table hover multiple-select-row nowrap">
                     <thead>
                         <tr>
                             <th scope="col">#</th>

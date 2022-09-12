@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SuperAdmin\CategoryController;
+use App\Http\Controllers\SuperAdmin\PropertyController;
 use App\Http\Controllers\SuperAdmin\SuperadminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,3 +45,8 @@ Route::get('get-feature', [CategoryController::class, 'getFeature']);
 Route::get('edit-feature', [CategoryController::class, 'editFeature']);
 Route::post('update-feature', [CategoryController::class, 'updateFeature']);
 Route::get('delete-feature', [CategoryController::class, 'deleteFeature']);
+
+// Super Admin Property Feature
+Route::get('superadmin/create-property', [PropertyController::class, 'createProperty']);
+Route::get('get-sub-cate-feature', [PropertyController::class, 'getSubCateFeature']);
+Route::post('store-property', [PropertyController::class, 'storeProperty']);
