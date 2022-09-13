@@ -50,3 +50,5 @@ Route::get('delete-feature', [CategoryController::class, 'deleteFeature']);
 Route::get('superadmin/create-property', [PropertyController::class, 'createProperty']);
 Route::get('get-sub-cate-feature', [PropertyController::class, 'getSubCateFeature']);
 Route::post('store-property', [PropertyController::class, 'storeProperty']);
+Route::get('property-list', [PropertyController::class, 'propertyList']);
+Route::get('status-update', [PropertyController::class, 'statusUpdate']);

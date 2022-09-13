@@ -98,6 +98,11 @@ class SubCategoryFeature extends Model
         }
     }
 
+    public static function getSubCateFeature(Request $request)
+    {
+        return SubCategoryFeature::where('subcate_id', $request->subcate_id)->get();
+    }
+
 
 
     // Relation with Sub Category

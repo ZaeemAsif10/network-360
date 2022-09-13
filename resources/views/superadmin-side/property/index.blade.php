@@ -8,15 +8,15 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <div class="title">
-                            <h4>Create Property</h4>
+                            <h4>Property List</h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="{{ url('superadmin/create-property') }}">Property</a>
+                                    <a href="{{ url('property-list') }}">Property</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Create Property
+                                    Property List
                                 </li>
                             </ol>
                         </nav>
@@ -29,90 +29,78 @@
             <div class="pd-20 card-box mb-30">
                 <div class="clearfix mb-20">
                     <div class="pull-left">
-                        <h4 class="text-success h4">Create Property</h4>
-
+                        <h4 class="text-success h4">Property List</h4>
                     </div>
                     <div class="pull-right">
-                        <button type="button" class="btn btn-success">Property List</button>
+                        <a href="{{ url('superadmin/create-property') }}" class="btn btn-success">Property Add</a>
                     </div>
                 </div>
 
-                <form action="{{ url('store-property') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Sub Category</label>
-                                <select name="subcate_id" class="form-control" required>
-                                    <option value="" selected disabled>Choose</option>
-                                    @isset($data['sub_categories'])
-                                        @foreach ($data['sub_categories'] as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    @endisset
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please Select Sub Category.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
-                                <div class="invalid-feedback">
-                                    Please Enter Name.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input type="text" name="price" class="form-control" placeholder="Enter Price" required>
-                                <div class="invalid-feedback">
-                                    Please Enter Price.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Cover Image</label>
-                                <input type="file" name="cover_image" class="form-control" required>
-                                <div class="invalid-feedback">
-                                    Please Choose Cover Image.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Video</label>
-                                <input type="file" name="video" class="form-control" required>
-                                <div class="invalid-feedback">
-                                    Please Choose Video.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Images</label>
-                                <input type="file" name="multi_images[]" class="form-control" multiple  required accept="image/*">
-                                <div class="invalid-feedback">
-                                    Please Choose Multiple Images.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" id="FeatureSection">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Sub Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Property Type</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="propertyTable">
+                        @isset($data['properties'])
+                            @foreach ($data['properties'] as $key => $property)
+                                <tr>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $property->name }}</td>
+                                    <td>{{ $property->subcategory->name }}</td>
+                                    <td>{{ $property->price }}</td>
+                                    <td class="text-center">
+                                        @if ($property->property_type == 1)
+                                            <span class="badge badge-pill badge-success">Sale</span>
+                                        @elseif($property->property_type == 2)
+                                            <span class="badge badge-pill badge-primary">Buy</span>
+                                        @elseif($property->property_type == 3)
+                                            <span class="badge badge-pill badge-warning">Rent</span>
+                                        @endif
+                                    </td>
 
-                    </div>
+                                    <td class="text-center">
+                                        @if ($property->status == 0)
+                                            <span class="badge badge-pill badge-danger">UnAvailable</span>
+                                        @elseif($property->status == 1)
+                                            <span class="badge badge-pill badge-success">Available</span>
+                                        @endif
+                                    </td>
 
-                    <div class="row text-center">
-                        <div class="col-md-12">
-                            <button class="btn btn-success">Save</button>
-                        </div>
-                    </div>
+                                    <td class="child text-center" colspan="6">
+                                        <ul data-dtr-index="0" class="dtr-details">
+                                            <li data-dtr-index="6" data-dt-row="0" data-dt-column="6"><span class="dtr-data">
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                                            href="#" role="button" data-toggle="dropdown">
+                                                            <i class="dw dw-more"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i>
+                                                                View</a>
+                                                            <a class="dropdown-item change_status" href="#" data="{{ $property->id }}"><i
+                                                                    class="icon-copy fa fa-circle-o-notch"
+                                                                    aria-hidden="true"></i>
+                                                                Status Change</a>
+                                                        </div>
+                                                    </div>
+                                                </span></li>
+                                        </ul>
+                                    </td>
 
-                </form>
+                                </tr>
+                            @endforeach
+                        @endisset
+                        <tr></tr>
+                    </tbody>
+                </table>
 
             </div>
             <!-- Bordered table End -->
@@ -121,52 +109,41 @@
     </div>
 @endsection
 
+
 @section('scripts')
     <script>
         $(document).ready(function() {
 
+            //status update
+            $('#propertyTable').on('click', '.change_status', function() {
 
-            $('select[name=subcate_id]').change(function() {
-
-                var subcate_id = $('select[name=subcate_id]').val();
+                var id = $(this).attr('data');
 
                 $.ajax({
-                    type: 'ajax',
-                    method: 'get',
-                    url: '{{ url('get-sub-cate-feature') }}',
-                    data: {
-                        subcate_id: subcate_id
-                    },
+                    url: '{{ url('/status-update') }}',
+                    type: 'get',
                     async: false,
                     dataType: 'json',
-                    success: function(data) {
-
-                        var html = '';
-                        var i;
-                        if (data.length > 0) {
-                            for (i = 0; i < data.length; i++) {
-                                html += '<div class="col-sm-4">' +
-                                    '<div class="form-group">' +
-                                    '<label>' + data[i].feature + '</label>' +
-                                    '<input class="form-control" type="hidden" name="subcate_id[]" value="' +
-                                    data[i].id + '">' +
-                                    '<input class="form-control" type="text" name="value[]" placeholder="' +
-                                    data[i].feature + '"  required>' +
-                                    '<div class="invalid-feedback">Please Enter Value.</div>'+
-                                    '</div>' +
-                                    '</div>';
-                            }
-                        }
-                        $('#FeatureSection').html(html);
+                    data: {
+                        id: id
                     },
+                    success: function(response) {
 
+                        if (response.status == 200) {
+                            toastr.success(response.message);
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 1000);
+                        }
+
+                    },
                     error: function() {
-                        toastr.error('Database error');
+                        toastr.error('something went wrong');
                     }
 
                 });
-            });
 
+            });
 
         });
     </script>

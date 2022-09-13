@@ -126,6 +126,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="{{ url('superadmin/create-property') }}">Create Property</a></li>
+                        <li><a href="{{ url('property-list') }}">Property List</a></li>
                     </ul>
                 </li>
             </ul>

@@ -125,6 +125,8 @@
 
     @yield('scripts')
 
+    @include('superadmin-side.setup.message.message')
+
 
 </body>
 
