@@ -17,6 +17,11 @@ class SubCategory extends Model
         return $sub_category;
     }
 
+    public static function createProperty()
+    {
+        return SubCategory::all();
+    }
+
     public static function storeSubCategory(Request $request)
     {
         $data = $request->all();

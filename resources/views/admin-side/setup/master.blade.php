@@ -98,6 +98,7 @@
     <script src="{{ asset('public/assets/js/wishlist.js') }}"></script>
     <script src="{{ asset('public/assets/vendor/core/plugins/cookie-consent/js/cookie-consent.js') }}"></script>
     <script src="{{ asset('public/assets/vendor/core/plugins/language/js/language-public.js') }}"></script>
+    <script src="{{ asset('public/superadmin-assets/validation/validate.js') }}"></script>
 
     <script>
         function reveal() {

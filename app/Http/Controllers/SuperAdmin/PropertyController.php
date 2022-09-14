@@ -15,7 +15,7 @@ class PropertyController extends Controller
 {
     public function createProperty()
     {
-        $data['sub_categories'] = SubCategory::all();
+        $data['sub_categories'] = SubCategory::createProperty();
         return view('superadmin-side.property.create_property', compact('data'));
     }
 
@@ -29,9 +29,9 @@ class PropertyController extends Controller
         return Property::storeProperty($request);
     }
 
-    public function propertyList(Request $request)
+    public function propertyList()
     {
-        $data['properties'] = Property::all();
+        $data['properties'] = Property::propertyList();
         return view('superadmin-side.property.index', compact('data'));
     }
 
@@ -49,5 +49,10 @@ class PropertyController extends Controller
             'status' => 200,
             'message' => 'Status Update Successfully',
         ]);
+    }
+
+    public function propertyDetails($id)
+    {
+        return Property::propertyDetails($id);
     }
 }

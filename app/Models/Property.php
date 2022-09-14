@@ -23,6 +23,11 @@ class Property extends Model
         'video',
     ];
 
+    public static function propertyList()
+    {
+        return Property::all();
+    }
+
     public static function storeProperty(Request $request)
     {
         if ($request->values != NULL) {
@@ -70,7 +75,7 @@ class Property extends Model
                     $uniqueid = uniqid();
                     $extension = $image->getClientOriginalExtension();
                     $name = Carbon::now()->format('Ymd') . '_' . $c . $uniqueid . '.' . $extension;
-                    $path = $image->storeAs('public/uploads/', $name);
+                    $path = $image->move('storage/app/public/uploads/property/images/', $name);
 
                     $image = new PropertyImage();
                     $image->multi_images = $name;
@@ -119,7 +124,7 @@ class Property extends Model
                     $uniqueid = uniqid();
                     $extension = $image->getClientOriginalExtension();
                     $name = Carbon::now()->format('Ymd') . '_' . $c . $uniqueid . '.' . $extension;
-                    $path = $image->storeAs('public/uploads/', $name);
+                    $path = $image->move('storage/app/public/uploads/property/images/', $name);
 
                     $image = new PropertyImage();
                     $image->multi_images = $name;
@@ -131,6 +136,14 @@ class Property extends Model
             return back()->with('success', 'Property Added Successfully');
         }
     }
+
+    public static function propertyDetails($id)
+    {
+        $data['details'] = Property::find($id);
+        $data['details_images'] = PropertyImage::where('property_id', $id)->get();
+        $data['details_values'] = PropertyValue::where('property_id', $id)->get();
+        return view('superadmin-side.property.details', compact('data'));
+    } 
 
 
     // Relation with Sub Category

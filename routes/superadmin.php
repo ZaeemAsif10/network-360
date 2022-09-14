@@ -52,3 +52,4 @@ Route::get('get-sub-cate-feature', [PropertyController::class, 'getSubCateFeatur
 Route::post('store-property', [PropertyController::class, 'storeProperty']);
 Route::get('property-list', [PropertyController::class, 'propertyList']);
 Route::get('status-update', [PropertyController::class, 'statusUpdate']);
+Route::get('property-details/{id}', [PropertyController::class, 'propertyDetails']);
