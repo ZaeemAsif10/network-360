@@ -14,7 +14,7 @@ class Category extends Model
     public static function getCategory()
     {
         $category = Category::all();
-        return $category;
+        return response()->json($category);
     }
 
     public static function storeCategory(Request $request)

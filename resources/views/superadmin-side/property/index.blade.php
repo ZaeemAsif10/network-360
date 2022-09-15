@@ -1,6 +1,5 @@
 @extends('superadmin-side.setup.master')
 
-
 @section('content')
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -83,9 +82,12 @@
                                                             <i class="dw dw-more"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                            <a class="dropdown-item" href="{{ url('property-details/'.$property->id) }}"><i class="dw dw-eye"></i>
+                                                            <a class="dropdown-item"
+                                                                href="{{ url('property-details/' . $property->id) }}"><i
+                                                                    class="dw dw-eye"></i>
                                                                 View</a>
-                                                            <a class="dropdown-item change_status" href="javascript:void(0)" data="{{ $property->id }}"><i
+                                                            <a class="dropdown-item change_status" href="javascript:void(0)"
+                                                                data="{{ $property->id }}"><i
                                                                     class="icon-copy fa fa-circle-o-notch"
                                                                     aria-hidden="true"></i>
                                                                 Status Change</a>
@@ -111,6 +113,7 @@
 
 
 @section('scripts')
+
     <script>
         $(document).ready(function() {
 

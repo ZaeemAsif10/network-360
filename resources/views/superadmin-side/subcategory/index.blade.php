@@ -1,5 +1,9 @@
 @extends('superadmin-side.setup.master')
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+@endsection
+
 
 @section('content')
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -37,7 +41,7 @@
                             Sub Category</button>
                     </div>
                 </div>
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="subCategoryTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -46,7 +50,7 @@
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody id="subCategoryTable">
+                    <tbody>
 
                     </tbody>
                 </table>
@@ -156,10 +160,16 @@
 @endsection
 
 @section('scripts')
+
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+
     <script>
         $(document).ready(function() {
 
             getSubCategory();
+
+            $('#subCategoryTable').DataTable();
 
             // Get Sub Category
             function getSubCategory() {
@@ -198,7 +208,7 @@
                         }
 
 
-                        $('#subCategoryTable').html(html);
+                        $('tbody').html(html);
 
                     },
                     error: function() {

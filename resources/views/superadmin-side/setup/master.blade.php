@@ -25,50 +25,19 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('public/superadmin-assets/vendors/styles/core.css') }}" />
     <link rel="stylesheet" type="text/css"
         href="{{ asset('public/superadmin-assets/vendors/styles/icon-font.min.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('public/superadmin-assets/src/plugins/datatables/css/dataTables.bootstrap4.min.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('public/superadmin-assets/src/plugins/datatables/css/responsive.bootstrap4.min.css') }}" />
 
     <link rel="stylesheet" type="text/css" href="{{ asset('public/superadmin-assets/vendors/styles/style.css') }}" />
 
     <link rel="stylesheet" type="text/css" href="{{ asset('public/superadmin-assets/src/styles/toastr.css') }}" />
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    @yield('styles')
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-
-        gtag("config", "G-GBZ3SGGX85");
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                "gtm.start": new Date().getTime(),
-                event: "gtm.js"
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != "dataLayer" ? "&l=" + l : "";
-            j.async = true;
-            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
-    </script>
-    <!-- End Google Tag Manager -->
 </head>
 
 <body>
 
     <!-- Preloader Start -->
-    <div class="pre-loader">
+    {{-- <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo">
                 <img src="{{ asset('public/superadmin-assets/vendors/images/deskapp-logo.svg') }}" alt="" />
@@ -79,7 +48,7 @@
             <div class="percent" id="percent1">0%</div>
             <div class="loading-text">Loading...</div>
         </div>
-    </div>
+    </div> --}}
     <!-- Preloader End -->
 
 
@@ -107,12 +76,6 @@
     <script src="{{ asset('public/superadmin-assets/vendors/scripts/process.js') }}"></script>
     <script src="{{ asset('public/superadmin-assets/src/scripts/toastr.min.js') }}"></script>
     <script src="{{ asset('public/superadmin-assets/vendors/scripts/layout-settings.js') }}"></script>
-    <script src="{{ asset('public/superadmin-assets/src/plugins/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('public/superadmin-assets/src/plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('public/superadmin-assets/src/plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('public/superadmin-assets/src/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('public/superadmin-assets/src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('public/superadmin-assets/vendors/scripts/dashboard3.js') }}"></script>
     <script src="{{ asset('public/superadmin-assets/validation/validate.js') }}"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"

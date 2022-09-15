@@ -1,5 +1,11 @@
 @extends('superadmin-side.setup.master')
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+@endsection
+
+
+
 @section('content')
 
     <style>
@@ -43,7 +49,7 @@
                             Feature</button>
                     </div>
                 </div>
-                <table class="table hover multiple-select-row nowrap">
+                <table class="table hover multiple-select-row nowrap" id="featureTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -52,7 +58,7 @@
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody id="featureTable">
+                    <tbody id="ftbody">
 
                     </tbody>
                 </table>
@@ -177,12 +183,15 @@
 
 
 @section('scripts')
+
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
     <script>
         $(document).ready(function() {
 
             getSubCategoryFeature();
 
-
+            $('#featureTable').DataTable();
 
             // Add New Row
             $('#new_row').on('click', '.add_more', function() {
@@ -243,7 +252,7 @@
                                 '</td>' +
                                 '</tr>';
                         }
-                        $('#featureTable').html(html);
+                        $('#ftbody').html(html);
 
                     },
                     error: function() {
