@@ -23,7 +23,8 @@
                                 </div>
 
                                 <!-- Content -->
-                                <form method="POST" action="#" class="needs-validation" novalidate>
+                                <form method="POST" action="{{ url('store-agents-property') }}" enctype="multipart/form-data" class="needs-validation" novalidate>
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">

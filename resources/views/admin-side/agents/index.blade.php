@@ -11,15 +11,8 @@
         <br>
         <div class="container page-content" style="background: none">
             <div class="table-wrapper">
-                
+
                 <div class="portlet light bordered portlet-no-padding">
-                    <div class="portlet-title">
-                        <div class="caption w-100">
-                            <div class="wrapper-action" style="float: right; margin-right: 10px;">
-                                <a href="{{ url('create-agents-property') }}" class="btn btn-primary">Create Property</a>
-                            </div>
-                        </div>
-                    </div>
                     <div class="portlet-body">
                         <div class="table-responsive  " style="overflow-x: inherit">
                             <table class="table table-striped table-hover vertical-middle"
@@ -32,10 +25,11 @@
                                         <th title="Price">Price</th>
                                         <th title="Property Type">Property Type</th>
                                         <th title="Status">Status</th>
+                                        <th title="Action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @isset($data['agent_properties'])
+                                    @if(count($data['agent_properties']) > 0)
                                         @foreach ($data['agent_properties'] as $key => $agent_property)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
@@ -59,9 +53,17 @@
                                                         <span class="badge badge-pill badge-success">Available</span>
                                                     @endif
                                                 </td>
+                                                <td class=" text-center">
+                                                    <div class="table-actions">
+                                                        <a href="{{ url('agents-property-details/'.$agent_property->id) }}" class="btn btn-icon btn-sm btn-info">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
                                             </tr>
+                                            
                                         @endforeach
-                                    @endisset
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

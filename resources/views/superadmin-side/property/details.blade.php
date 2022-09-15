@@ -66,12 +66,11 @@
 
                     <div class="clearfix">
                         <h4 class="text-success h4">Property Values</h4>
-                        @isset($data['details_values'])
+                        @if(count($data['details_values']) > 0)
                             @foreach ($data['details_values'] as $value)
                                 <span class="badge badge-pill badge-success">{{ $value->values ?? '' }}</span>
                             @endforeach
-                        @endisset
-
+                        @endif
                     </div>
 
                 </div>

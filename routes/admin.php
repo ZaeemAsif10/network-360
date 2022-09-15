@@ -30,5 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'index']);
     Route::get('agents', [AdminController::class, 'Agents']);
     Route::get('create-agents-property', [AdminController::class, 'createAgentsProperty']);
+    Route::post('store-agents-property', [AdminController::class, 'storeAgentsProperty']);
+    Route::get('agents-property-details/{id}', [AdminController::class, 'agentsPropertyDetail']);
 
 });
