@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\WebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,11 @@ use App\Http\Controllers\Admin\AdminController;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('web-side.index');
+// });
+
+Route::get('/',[WebController::class, 'index']);
+Route::get('home-details/{id}',[WebController::class, 'homeDetails']);
 
 

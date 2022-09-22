@@ -190,7 +190,7 @@
                                     '<div class="form-group">' +
                                     '<label>' + data[i].feature + '</label>' +
                                     '<input class="form-control" type="hidden" name="subcate_feature_id[]" value="' +
-                                    data[i].id + '">' +
+                                    data[i].subcate_id + '">' +
                                     '<input class="form-control" type="text" name="values[]" placeholder="' +
                                     data[i].feature + '"  required>' +
                                     '<div class="invalid-feedback">Please Enter Value.</div>' +

@@ -23,9 +23,9 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/', function () {
-        return view('auth.login');
-    });
+    // Route::get('/', function () {
+    //     return view('auth.login');
+    // });
 
     Route::get('admin/dashboard', [AdminController::class, 'index']);
     Route::get('agents', [AdminController::class, 'Agents']);
