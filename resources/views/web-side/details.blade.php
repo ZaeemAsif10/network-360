@@ -4,6 +4,7 @@
     <div id="app">
         <main class="detailproject bg-white">
             <div data-property-id="14"></div>
+
             <div class="boxsliderdetail">
                 <div class="slidetop">
                     <div class="owl-carousel" id="listcarousel">
@@ -22,7 +23,6 @@
 
             <div class="container-fluid w90 padtop20">
                 <h1 class="titlehouse">{{ $data['details']->name ?? '' }}</h1>
-                {{-- <p class="addresshouse"><i class="fas fa-map-marker-alt"></i> Anaheim, California</p> --}}
                 <p class="pricehouse"> {{ number_format($data['details']->price, 2) }}
                     @if ($data['details']->property_type == 1)
                         <span class="label-success status-label">Selling</span>
@@ -37,8 +37,6 @@
                         <div class="row pt-3">
 
                         </div>
-
-
                         <div class="row">
                             <div class="col-sm-12">
                                 <h5 class="headifhouse">Features</h5>
@@ -53,19 +51,7 @@
                                 @endif
                             </div>
                         </div>
-
                         <br>
-                        {{-- <div id="zxcvbnm">
-                            <h5 class="headifhouse">Location</h5>
-                            <p>Kuala Lumpur, Malaysia, Anaheim, California</p>
-                            <div class="traffic-map-container">
-                                <div class="row justify-content-center">
-                                    <div class="col-12">
-                                        <div id="trafficMap" class="w-100 h-100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="mt-3">
                             <h5 class="headifhouse">Property video</h5>
                             <div class="row justify-content-center">
@@ -84,15 +70,15 @@
                             <span>Share this property:</span>
                             <ul>
                                 <li>
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FFlexHome%2Fpublic%2Fproperties%2Fvilla-for-sale-in-lavanya-residences&title=Next to St Regis 5 Star Hotel, Excellent accessibility (LRT,KLIA TRANSIT,KTM), Rooftop Sky lounge, sky pool, sky gym, KLCC and Lake Garden VIEW"
+                                    <a href="#"
                                         target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%2FFlexHome%2Fpublic%2Fproperties%2Fvilla-for-sale-in-lavanya-residences&summary=Next to St Regis 5 Star Hotel, Excellent accessibility (LRT,KLIA TRANSIT,KTM), Rooftop Sky lounge, sky pool, sky gym, KLCC and Lake Garden VIEW&source=Linkedin"
+                                    <a href="#"
                                         title="Share on Linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%2FFlexHome%2Fpublic%2Fproperties%2Fvilla-for-sale-in-lavanya-residences&text=Next to St Regis 5 Star Hotel, Excellent accessibility (LRT,KLIA TRANSIT,KTM), Rooftop Sky lounge, sky pool, sky gym, KLCC and Lake Garden VIEW"
+                                    <a href="#"
                                         target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
                                 </li>
                             </ul>
@@ -179,17 +165,31 @@
                 </div>
                 <div class="slidebot">
                     <div class="row">
-                        <div class="col-12 col-md-12 col-sm-6">
+                        <div class="col-12 col-md-12 col-sm-12">
                             <div>
                                 <div id="listcarouselthumb" class="owl-carousel owl-loaded owl-drag">
                                     <div class="owl-stage-outer">
                                         <div class="owl-stage"
                                             style="transform: translate3d(-1082px, 0px, 0px); transition: all 0.25s ease 0s; width: 2599px;">
                                             @foreach ($data['sub_cates'] as $sub_cate)
-                                                <div class="owl-item cloned" style="width: 216.578px;">
-                                                    <div rel="3" class="item cthumb"><img
-                                                            src="data:audio/mpeg;base64,{{ $sub_cate->cover_image ?? '' }}"
-                                                            rel="3" class="showfullimg"></div>
+                                                <div class="owl-item cloned">
+
+
+                                                    <div rel="3" class="item cthumb">
+                                                        
+                                                        <img src="data:audio/mpeg;base64,{{ $sub_cate->cover_image ?? '' }}"
+                                                            rel="3" class="showfullimg">
+
+                                                        <ul class="item-price-wrap hide-on-list">
+                                                            <li class="h-type">
+                                                                <span>{{ $sub_cate->subcategory->name }}</span>
+                                                            </li>
+                                                            <li class="item-price">
+                                                                {{ number_format($sub_cate->price, 2) }}
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
                                                 </div>
                                             @endforeach
                                         </div>

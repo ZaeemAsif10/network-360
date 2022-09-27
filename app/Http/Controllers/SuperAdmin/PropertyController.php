@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Agent;
 use App\Models\Property;
 use App\Models\PropertyImage;
 use App\Models\PropertyValue;
@@ -16,6 +17,7 @@ class PropertyController extends Controller
     public function createProperty()
     {
         $data['sub_categories'] = SubCategory::createProperty();
+        $data['agents'] = Agent::all();
         return view('superadmin-side.property.create_property', compact('data'));
     }
 

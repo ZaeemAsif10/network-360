@@ -1,10 +1,19 @@
+
+<style>
+    .logo:hover{
+        text-decoration: none !important;
+    }
+</style>
+
 <header class="topmenu bg-light" style="position: sticky;">
     <div id="header-waypoint" class="main-header">
         <div class="container-fluid w90">
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <h4 class="font-wieght-bold">NETWORK-360</h4>
+                        <a href="{{ url('/') }}" class="logo">
+                            <h4 class="font-wieght-bold ">NETWORK-360</h4>
+                        </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" id="header-waypoint"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -24,17 +33,17 @@
                                 <div class="main-menu-nav d-lg-flex">
                                     <ul class="navbar-nav justify-content-end menu menu--mobile">
                                         <li class="menu-item   ">
-                                            <a href="project.html" target="_self">
+                                            <a href="{{ url('projects') }}" target="_self">
                                                 Projects
                                             </a>
                                         </li>
                                         <li class="menu-item   ">
-                                            <a href="properties.html" target="_self">
+                                            <a href="{{ url('property') }}" target="_self">
                                                 Properties
                                             </a>
                                         </li>
                                         <li class="menu-item   ">
-                                            <a href="agents.html" target="_self">
+                                            <a href="{{ url('agents') }}" target="_self">
                                                 Agents
                                             </a>
                                         </li>

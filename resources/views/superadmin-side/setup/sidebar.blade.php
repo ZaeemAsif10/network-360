@@ -129,6 +129,25 @@
                         <li><a href="{{ url('property-list') }}">Property List</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-house"></span><span class="mtext">Agent</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ url('superadmin/agent') }}">Agent List</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-house"></span><span class="mtext">Project</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ url('admin/create-project') }}">Create Project</a></li>
+                        <li><a href="{{ url('admin/project-list') }}">Project List</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </div>

@@ -22,6 +22,11 @@ class SubCategory extends Model
         return SubCategory::all();
     }
 
+    public static function getAgent()
+    {
+        return Agent::all();
+    }
+
     public static function storeSubCategory(Request $request)
     {
         $data = $request->all();

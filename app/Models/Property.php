@@ -39,6 +39,7 @@ class Property extends Model
                 'name' => 'required',
                 'price' => 'required',
                 'property_type' => 'required',
+                'agent_id' => 'required',
                 'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'video' => 'mimes:mp4,mov,ogg | max:20000',
                 'multi_images' => 'required',
@@ -50,6 +51,7 @@ class Property extends Model
             $prop->name = $request->name;
             $prop->price = $request->price;
             $prop->property_type = $request->property_type;
+            $prop->agent_id = $request->agent_id;
             //Cover image store with base64
             $cover_image = base64_encode(file_get_contents($request->file('cover_image')));
 
@@ -101,6 +103,7 @@ class Property extends Model
             $prop->name = $request->name;
             $prop->price = $request->price;
             $prop->property_type = $request->property_type;
+            $prop->agent_id = $request->agent_id;
             //Cover image store with base64
             $cover_image = base64_encode(file_get_contents($request->file('cover_image')));
 

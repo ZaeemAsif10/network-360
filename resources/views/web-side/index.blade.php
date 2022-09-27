@@ -37,7 +37,7 @@
                                                                 src="data:audio/mpeg;base64,{{ $property->cover_image ?? '' }}"
                                                                 alt="5 room luxury penthouse for sale in Kuala Lumpur">
                                                         </div>
-                                                        <a href="{{ url('home-details/'.$property->id) }}"
+                                                        <a href="{{ url('home-details/' . $property->id) }}"
                                                             class="linkdetail"></a>
                                                         <div class="status">
                                                             @if ($property->property_type == 1)
@@ -59,37 +59,25 @@
                                                     </div>
 
                                                     <div class="description">
-                                                        <a href="#" class="text-orange heart add-to-wishlist"
-                                                            data-id="14" title="I care about this property!!!"><i
-                                                                class="far fa-heart"></i></a>
                                                         <a href="properties/villa-for-sale-in-lavanya-residences">
                                                             <h5>{{ $property->name }}</h5>
-                                                            {{-- <p class="dia_chi"><i class="fas fa-map-marker-alt"></i>
-                                                                Anaheim,
-                                                                California</p> --}}
+
                                                         </a>
-                                                        
-
-                                                        
-
-                                                        
-                                                            <p class="threemt bold500">
-                                                                <span data-toggle="tooltip" data-placement="top"
-                                                                    data-original-title="Number of rooms">
-                                                                    <i><img src="{{ asset('public/assets/images/bed.svg') }}"
-                                                                            alt="icon"></i> <i
-                                                                        class="vti">6</i> </span>
-                                                                <span data-toggle="tooltip" data-placement="top"
-                                                                    data-original-title="Number of rest rooms"> <i><img
-                                                                            src="{{ asset('public/assets/images/bath.svg') }}"
-                                                                            alt="icon"></i> <i
-                                                                        class="vti">7</i></span>
-                                                                <span data-toggle="tooltip" data-placement="top"
-                                                                    data-original-title="Square"> <i><img
-                                                                            src="{{ asset('public/assets/images/area.svg') }}"
-                                                                            alt="icon"></i> <i class="vti">377 m²</i>
-                                                                </span>
-                                                            </p>
+                                                        <p class="threemt bold500">
+                                                            <span data-toggle="tooltip" data-placement="top"
+                                                                data-original-title="Number of rooms">
+                                                                <i><img src="{{ asset('public/assets/images/bed.svg') }}"
+                                                                        alt="icon"></i> <i class="vti">6</i> </span>
+                                                            <span data-toggle="tooltip" data-placement="top"
+                                                                data-original-title="Number of rest rooms"> <i><img
+                                                                        src="{{ asset('public/assets/images/bath.svg') }}"
+                                                                        alt="icon"></i> <i class="vti">7</i></span>
+                                                            <span data-toggle="tooltip" data-placement="top"
+                                                                data-original-title="Square"> <i><img
+                                                                        src="{{ asset('public/assets/images/area.svg') }}"
+                                                                        alt="icon"></i> <i class="vti">377 m²</i>
+                                                            </span>
+                                                        </p>
 
                                                     </div>
                                                 </div>
@@ -500,5 +488,5 @@
 
         </div>
     </div>
-    
+
 @endsection

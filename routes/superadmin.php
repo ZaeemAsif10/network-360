@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SuperAdmin\AgentController;
 use App\Http\Controllers\SuperAdmin\CategoryController;
+use App\Http\Controllers\SuperAdmin\ProjectController;
 use App\Http\Controllers\SuperAdmin\PropertyController;
 use App\Http\Controllers\SuperAdmin\SuperadminController;
 use Illuminate\Support\Facades\Auth;
@@ -53,3 +55,25 @@ Route::post('store-property', [PropertyController::class, 'storeProperty']);
 Route::get('property-list', [PropertyController::class, 'propertyList']);
 Route::get('status-update', [PropertyController::class, 'statusUpdate']);
 Route::get('property-details/{id}', [PropertyController::class, 'propertyDetails']);
+
+
+// Super Admin Agent
+Route::controller(AgentController::class)->group(function () {
+
+    Route::get('superadmin/agent', 'Agent')->name('superadmin.Agent');
+    Route::get('get-agent', 'getAgent');
+    Route::post('store-agent', 'storeAgent');
+    Route::get('edit-agent', 'editAgent');
+    Route::post('update-agent', 'updateAgent');
+    Route::get('delete-agent', 'deleteAgent');
+});
+
+Route::controller(ProjectController::class)->group(function () {
+
+    Route::get('admin/create-project','createProject');
+    Route::get('admin/project-list','projectList');
+    Route::post('admin/store-project', 'storeProject');
+    Route::get('admin/edit-project/{id}', 'editProject');
+    Route::post('admin/update-project', 'updateProject');
+
+});

@@ -23,7 +23,14 @@ Auth::routes();
 //     return view('web-side.index');
 // });
 
-Route::get('/',[WebController::class, 'index']);
-Route::get('home-details/{id}',[WebController::class, 'homeDetails']);
+Route::controller(WebController::class)->group(function () {
 
+    Route::get('/','index');
+    Route::get('home-details/{id}','homeDetails');
+    Route::get('agents','Agents');
+    Route::get('view-agent-detail/{id}','viewAgentDetail');
+    Route::get('property','Property');
 
+    Route::get('projects','Projects');
+
+});

@@ -59,6 +59,22 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
+                                <label>Agents</label>
+                                <select name="agent_id" class="form-control" required>
+                                    <option value="" selected disabled>Choose</option>
+                                    @isset($data['agents'])
+                                        @foreach ($data['agents'] as $agent)
+                                            <option value="{{ $agent->id }}">{{ $agent->name }}</option>
+                                        @endforeach
+                                    @endisset
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please Choose Agent.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
                                 <label>Name</label>
                                 <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
                                 <div class="invalid-feedback">
@@ -90,7 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Cover Image</label>
                                 <input type="file" name="cover_image" class="form-control" id="image-upload" required>
@@ -99,7 +115,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Video</label>
                                 <input type="file" name="video" class="form-control" id="video-upload" required>
@@ -109,7 +125,7 @@
                                 <div class="text-danger" id="meta"></div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Images</label>
                                 <input type="file" name="multi_images[]" class="form-control" multiple required

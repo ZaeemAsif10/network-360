@@ -76,8 +76,6 @@ class CategoryController extends Controller
 
 
 
-
-
     //Sub Category Functons
     public function createFeature()
     {
