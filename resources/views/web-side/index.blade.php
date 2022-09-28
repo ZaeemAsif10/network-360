@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="home_banner" style="background-image: url(storage/banner/banner.jpg)">
+        
         <div class="topsearch">
             <h1 class="text-center text-white mb-4 banner-text-description">Find your favorite Home
             </h1>
@@ -67,7 +68,8 @@
                                                             <span data-toggle="tooltip" data-placement="top"
                                                                 data-original-title="Number of rooms">
                                                                 <i><img src="{{ asset('public/assets/images/bed.svg') }}"
-                                                                        alt="icon"></i> <i class="vti">6</i> </span>
+                                                                        alt="icon"></i> <i class="vti">6</i>
+                                                            </span>
                                                             <span data-toggle="tooltip" data-placement="top"
                                                                 data-original-title="Number of rest rooms"> <i><img
                                                                         src="{{ asset('public/assets/images/bath.svg') }}"

@@ -19,10 +19,6 @@ use App\Http\Controllers\WebController;
 
 Auth::routes();
 
-// Route::get('/', function () {
-//     return view('web-side.index');
-// });
-
 Route::controller(WebController::class)->group(function () {
 
     Route::get('/','index');

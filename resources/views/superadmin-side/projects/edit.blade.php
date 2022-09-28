@@ -34,7 +34,7 @@
                 </div>
 
                 <form action="{{ url('admin/update-project') }}" method="POST" enctype="multipart/form-data"
-                    class="needs-validation" novalidate>
+                    class="needs-validation" novalidate id="edit_project_form">
                     @csrf
                     <input type="hidden" name="edit_project_id" value="{{ $data['project']->id }}">
 
@@ -92,19 +92,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Image</label>
-                                <input type="file" name="image" class="form-control" required>
+                                <input type="file" name="image" class="form-control">
+                                <img src="{{ asset('storage/app/public/uploads/project/' . $data['project']->image) }}"
+                                    class="img-fluid mt-2" width="15%" alt="">
                                 <div class="invalid-feedback">
                                     Please Choose Image.
                                 </div>
-                                <img src="{{ asset('storage/app/public/uploads/project/' . $data['project']->image) }}"
-                                    class="img-fluid mt-2" width="15%" alt="">
                             </div>
                         </div>
                     </div>
 
-                    <div class="row text-center">
+                    <div class="row text-center mt-3">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="submit" class="btn btn-success update_changes">Save Changes</button>
                         </div>
                     </div>
                 </form>
@@ -140,4 +140,17 @@
             });
         }
     </script>
+
+    <script>
+        $(document).ready(function () {
+            
+            $('.update_changes').on('click', function() {
+                $(".update_changes").prop("disabled", true);
+                $(".update_changes").html("Savning...");
+                $('#edit_project_form').submit();
+            });
+
+        });
+    </script>
+
 @endsection

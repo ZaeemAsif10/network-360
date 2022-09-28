@@ -64,11 +64,11 @@
                                     </td>
                                     <td style="">
                                         <div class="table-actions">
-                                            <a href="{{ url('admin/edit-project/'.$project->id) }}" data-color="#265ed7"
-                                                style="color: #0b8865;"><i
-                                                    class="icon-copy dw dw-edit2"></i></a>
-                                            <a href="#" data-color="#e95959" style="color: rgb(233, 89, 89);"
-                                                class="delete_category"><i class="icon-copy dw dw-delete-3 ml-2"></i></a>
+                                            <a href="{{ url('admin/edit-project/' . $project->id) }}" data-color="#265ed7"
+                                                style="color: #0b8865;"><i class="icon-copy dw dw-edit2"></i></a>
+                                            <a href="#" data="{{ $project->id }}" data-color="#e95959"
+                                                style="color: rgb(233, 89, 89);" class="delete_project"><i
+                                                    class="icon-copy dw dw-delete-3 ml-2"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -95,68 +95,48 @@
     <script>
         $(document).ready(function() {
 
-            //Edit Agent
-            $('#projectTable').on('click', '.edit_project', function(e) {
-                e.preventDefault();
+            
 
-                $('select[name="subcat_id"]').empty();
+
+            // Delete Agent
+            $('#projectTable').on('click', '.delete_project', function(e) {
+                e.preventDefault();
 
                 var id = $(this).attr('data');
 
-                $('#edit_project_modal').modal('show');
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to Delete this Data!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "GET",
+                            url: "{{ url('admin/delete-project') }}",
+                            data: {
+                                id: id
+                            },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            dataType: "json",
+                            success: function(response) {
 
-                $.ajax({
+                                toastr.success(response.message);
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 1000);
 
-                    type: 'ajax',
-                    method: 'get',
-                    url: '{{ url('admin/edit-project') }}',
-                    data: {
-                        id: id
-                    },
-                    async: false,
-                    dataType: 'json',
-                    success: function(data) {
-
-                        $('input[name=edit_project_id]').val(data.project.id);
-                        $('input[name=title]').val(data.project.title);
-                        $('input[name=location]').val(data.project.location);
-                        $('input[name=lat]').val(data.project.lat);
-                        $('input[name=long]').val(data.project.long);
-
-                        //Edit Dropdown using ajax...
-                        $.each(data.subcate, function(key, subcate) {
-
-                            $('select[name="subcat_id"]')
-                                .append(
-                                    `<option value="${subcate.id}" ${subcate.id == data.project.subcat_id ? 'selected' : ''}>${subcate.name}</option>`
-                                )
+                            }
                         });
-
-                        //Edit image using ajax...
-                        $('#store_image').html(
-                            '<img src="{{ asset('storage/app/public/uploads/project/') }}/' +
-                            data.project.image +
-                            '" class="mt-4 ml-4" width="60px" height="70px" />'
-                        );
-                        $('#store_image').append(
-                            '<input type="hidden" name="hidden_image" value="' + data
-                            .project
-                            .image + '" />');
-
-
-
-                    },
-
-                    error: function() {
-
-                        toastr.error('something went wrong');
-
                     }
-
-                });
+                })
 
             });
-
 
         });
     </script>

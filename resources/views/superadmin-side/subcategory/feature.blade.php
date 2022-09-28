@@ -110,6 +110,18 @@
                                             </div>
                                         </div>
                                     </td>
+
+                                    <td class="border-0">
+                                        <div class="form-group" id="fc">
+                                            <label>Icon</label>
+                                            <input type="file" name="icon[]" class="form-control"
+                                                placeholder="Feature" required>
+                                            <div class="invalid-feedback">
+                                                Please Choose Icon.
+                                            </div>
+                                        </div>
+                                    </td>
+
                                     <td class="border-0">
                                         <button type="button" class="btn btn-success btn-sm add_more"
                                             style="margin-top: 40px;"><i class="icon-copy fi-plus"></i></button>
@@ -198,11 +210,18 @@
                 var html1 = '';
                 html1 += ' <tr class="secondRow">' +
                     '<td class="border-0">' +
-                    '<div class="form-group" id="fc">' +
-                    '<label>Feature</label>' +
-                    '<input type="text" name="feature[]" class="form-control" placeholder="Feature" required>' +
-                    '<div class="invalid-feedback">Please Enter Feature.</div>' +
-                    '</div>' +
+                        '<div class="form-group" id="fc">' +
+                            '<label>Feature</label>' +
+                            '<input type="text" name="feature[]" class="form-control" placeholder="Feature" required>' +
+                            '<div class="invalid-feedback">Please Enter Feature.</div>' +
+                        '</div>' +
+                    '</td>' +
+                    '<td class="border-0">' +
+                        '<div class="form-group" id="fc">' +
+                            '<label>Icon</label>' +
+                            '<input type="file" name="icon[]" class="form-control" placeholder="Feature" required>' +
+                            '<div class="invalid-feedback">Please Choose Icon.</div>' +
+                        '</div>' +
                     '</td>' +
                     '<td class="border-0">' +
                     '<button type="button" class="btn btn-danger btn-sm remove_row" style="margin-top: 40px;"><i class="icon-copy fi-minus"></i></button>' +

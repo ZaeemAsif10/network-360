@@ -37,7 +37,8 @@
                     </div>
                 </div>
 
-                <form action="{{ url('admin/store-project') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <form action="{{ url('admin/store-project') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate
+                id="save_project_form">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -112,7 +113,7 @@
 
                     <div class="row text-center">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="submit" class="btn btn-success btn_save">Save</button>
                         </div>
                     </div>
 
@@ -144,4 +145,5 @@
             });
         }
     </script>
+
 @endsection

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 class SubCategoryFeature extends Model
@@ -19,8 +20,7 @@ class SubCategoryFeature extends Model
 
     public static function storeFeature($request)
     {
-        if ($request->feature != NULL) 
-        {
+        if ($request->feature != NULL) {
             $size = count($request->feature);
 
             $data = $request->all();
@@ -29,19 +29,29 @@ class SubCategoryFeature extends Model
                 'subcate_id' => 'required',
                 'feature' => 'required',
             );
-    
+
             $validator = Validator::make($data, $rules);
             if ($validator->fails()) {
-    
+
                 return response()->json(['errors' => $validator->errors()->all()]);
             }
 
-            for($i = 0; $i < $size; $i++)
-            {
-                $feature = new SubCategoryFeature();
-                $feature->subcate_id = $request->subcate_id;
-                $feature->feature = $request->feature[$i];
-                $feature->save();
+            $c = 0;
+            if ($request->has('icon')) {
+                $c++;
+                foreach ($request->file('icon') as $image) {
+                    $uniqueid = uniqid();
+                    $extension = $image->getClientOriginalExtension();
+                    $name = Carbon::now()->format('Ymd') . '_' . $c . $uniqueid . '.' . $extension;
+                    $path = $image->storeAs('storage/app/public/uploads/icons/', $name);
+                }
+                for ($i = 0; $i < $size; $i++) {
+                    $feature = new SubCategoryFeature();
+                    $feature->icon = $name;
+                    $feature->subcate_id = $request->subcate_id;
+                    $feature->feature = $request->feature[$i];
+                    $feature->save();
+                }
             }
 
             return response()->json([
@@ -89,8 +99,7 @@ class SubCategoryFeature extends Model
     public static function deleteFeature($id)
     {
         $category = SubCategoryFeature::find($id);
-        if($category->delete())
-        {
+        if ($category->delete()) {
             return response()->json([
                 'status' => 200,
                 'success' => 'Feature Delete Sucessfully',
@@ -108,6 +117,6 @@ class SubCategoryFeature extends Model
     // Relation with Sub Category
     public function subcat()
     {
-        return $this->belongsTo(SubCategory::class, 'subcate_id','id');
+        return $this->belongsTo(SubCategory::class, 'subcate_id', 'id');
     }
 }

@@ -44,7 +44,9 @@
                                     <div class="row">
                                         @foreach ($data['details_features'] as $key => $feature)
                                             <div class="col-sm-3">
-                                                <p>({{ $key + 1 }}) <strong>{{ $feature->feature ?? '' }}</strong></p>
+                                                <p><img src="{{ asset('storage/app/storage/app/public/uploads/icons/' . $feature->icon) }}"
+                                                        width="20%" alt="">
+                                                    <strong>{{ $feature->feature ?? '' }}</strong></p>
                                             </div>
                                         @endforeach
                                     </div>
@@ -70,16 +72,16 @@
                             <span>Share this property:</span>
                             <ul>
                                 <li>
-                                    <a href="#"
-                                        target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" target="_blank" title="Share on Facebook"><i
+                                            class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                        title="Share on Linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" title="Share on Linkedin" target="_blank"><i
+                                            class="fab fa-linkedin-in"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                        target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" target="_blank" title="Share on Twitter"><i
+                                            class="fab fa-twitter"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -176,7 +178,7 @@
 
 
                                                     <div rel="3" class="item cthumb">
-                                                        
+
                                                         <img src="data:audio/mpeg;base64,{{ $sub_cate->cover_image ?? '' }}"
                                                             rel="3" class="showfullimg">
 

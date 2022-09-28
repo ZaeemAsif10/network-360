@@ -49,7 +49,6 @@ class Project extends Model
             'subcat_id' => 'required',
             'title' => 'required',
             'location' => 'required',
-            'image' => 'required',
         ]);
         $project = Project::find($request->edit_project_id);
         $project->subcat_id = $request->subcat_id;

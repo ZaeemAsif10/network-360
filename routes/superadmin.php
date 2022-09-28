@@ -75,5 +75,6 @@ Route::controller(ProjectController::class)->group(function () {
     Route::post('admin/store-project', 'storeProject');
     Route::get('admin/edit-project/{id}', 'editProject');
     Route::post('admin/update-project', 'updateProject');
+    Route::get('admin/delete-project', 'deleteProject');
 
 });
